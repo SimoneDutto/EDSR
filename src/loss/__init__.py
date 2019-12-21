@@ -38,7 +38,7 @@ class Loss(nn.modules.loss._Loss):
                     loss_type
                 )
             elif loss_type == "GDL":
-                module = import_module('loss.WMSE')
+                module = import_module('loss.gdl')
                 loss_function = getattr(module, 'GDL')()
 
             self.loss.append({
