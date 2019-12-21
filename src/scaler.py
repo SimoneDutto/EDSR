@@ -39,10 +39,10 @@ if __name__ == '__main__':
     for file in os.listdir(args.input):
      filename = os.fsdecode(file)
      if filename.endswith(".png") : 
-        img = Image.open(args.input+filename)
+        img = Image.open(args.input+"/"+filename)
         img_scaled = downscale_by_ratio(img, args.ratio)
 
-        img_scaled.save(args.output+filename)
+        img_scaled.save(args.output+"/"filename)
      else:
          continue
     
