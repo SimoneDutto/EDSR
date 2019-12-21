@@ -42,7 +42,7 @@ if __name__ == '__main__':
         img = Image.open(args.input+"/"+filename)
         img_scaled = downscale_by_ratio(img, args.ratio)
 
-        img_scaled.save(args.output+"/"filename)
+        img_scaled.save(args.output+"/"+filename)
      else:
          continue
     
