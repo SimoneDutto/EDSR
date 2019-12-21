@@ -17,8 +17,8 @@ class GDL(nn.Module):
 
     def forward(self, sr, hr):
         # create filters [-1, 1] and [[1],[-1]] for diffing to the left and down respectively.
-        y_true = K.batch_flatten(hr..cpu().numpy())
-        y_pred = K.batch_flatten(hr..cpu().numpy())
+        y_true = K.batch_flatten(hr.cpu().numpy())
+        y_pred = K.batch_flatten(hr.cpu().numpy())
         Y_true = K.reshape(y_true, (-1, ) + img_shape)
         Y_pred = K.reshape(y_pred, (-1, ) + img_shape)
         t1 = K.pow(K.abs(Y_true[:, :, 1:, :] - Y_true[:, :, :-1, :]) -
