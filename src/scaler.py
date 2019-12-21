@@ -36,6 +36,7 @@ def parse_args():
 if __name__ == '__main__':
     # Parse command-line arguments
     args = parse_args()
+    os.mkdir(args.output)
     for file in os.listdir(args.input):
      filename = os.fsdecode(file)
      if filename.endswith(".png") : 
