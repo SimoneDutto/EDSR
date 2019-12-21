@@ -20,7 +20,7 @@ class GDL(nn.Module):
         pos = tf.constant(np.identity(1), dtype=tf.float32)
         neg = -1 * pos
         filter_x = tf.expand_dims(tf.pack([neg, pos]), 0)  # [-1, 1]
-        filter_y = tf.pack([tf.expand_dims(pos, 0), tf.expand_dims(neg, 0)])  # [[1],[-1]]
+        filter_y = tf.stack([tf.expand_dims(pos, 0), tf.expand_dims(neg, 0)])  # [[1],[-1]]
         strides = [1, 1, 1, 1]  # stride of (1, 1)
         padding = 'SAME'
 
@@ -32,7 +32,7 @@ class GDL(nn.Module):
         grad_diff_x = tf.abs(gt_dx - gen_dx)
         grad_diff_y = tf.abs(gt_dy - gen_dy)
 
-        gdl=tf.reduce_sum((grad_diff_x ** alpha + grad_diff_y ** alpha))/tf.cast(batch_size_tf,tf.float32)
+        gdl=tf.reduce_sum((grad_diff_x ** alpha + grad_diff_y ** alpha))
 
         # condense into one tensor and avg
         return gdl
