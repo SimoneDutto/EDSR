@@ -23,10 +23,10 @@ class GDL(nn.Module):
         strides = [1, 1, 1, 1]  # stride of (1, 1)
         padding = 'SAME'
 
-        gen_dx = tf.abs(tf.nn.conv2d(gen_CT.cpu().numpy(), filter_x, strides, padding=padding))
-        gen_dy = tf.abs(tf.nn.conv2d(gen_CT.cpu().numpy(), filter_y, strides, padding=padding))
-        gt_dx = tf.abs(tf.nn.conv2d(gt_CT.cpu().numpy(), filter_x, strides, padding=padding))
-        gt_dy = tf.abs(tf.nn.conv2d(gt_CT.cpu().numpy(), filter_y, strides, padding=padding))
+        gen_dx = tf.abs(tf.nn.conv2d(sr.cpu().numpy(), filter_x, strides, padding=padding))
+        gen_dy = tf.abs(tf.nn.conv2d(sr.cpu().numpy(), filter_y, strides, padding=padding))
+        gt_dx = tf.abs(tf.nn.conv2d(hr.cpu().numpy(), filter_x, strides, padding=padding))
+        gt_dy = tf.abs(tf.nn.conv2d(hr.cpu().numpy(), filter_y, strides, padding=padding))
 
         grad_diff_x = tf.abs(gt_dx - gen_dx)
         grad_diff_y = tf.abs(gt_dy - gen_dy)
