@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from math import floor
 from PIL import Image
+import os
 
 
 def downscale_by_ratio(img, ratio, method=Image.BICUBIC, magic_crop=False):
@@ -17,8 +18,8 @@ def downscale_by_ratio(img, ratio, method=Image.BICUBIC, magic_crop=False):
 
 def parse_args():
     parser = ArgumentParser(description='Downscale')
-    parser.add_argument('-i', '--input', help='Input image')
-    parser.add_argument('-o', '--output', help='Output imag.')
+    parser.add_argument('-i', '--input', help='Input dir')
+    parser.add_argument('-o', '--output', help='Output dir')
 
     parser.add_argument(
         '-r',
@@ -33,11 +34,15 @@ def parse_args():
 
 
 if __name__ == '__main__':
-
     # Parse command-line arguments
     args = parse_args()
+    for file in os.listdir(args.input):
+     filename = os.fsdecode(file)
+     if filename.endswith(".png") : 
+        img = Image.open(args.input)
+        img_scaled = downscale_by_ratio(img, args.ratio)
 
-    img = Image.open(args.input)
-    img_scaled = downscale_by_ratio(img, args.ratio)
-
-    img_scaled.save(args.output)
+        img_scaled.save(args.output+filename)
+     else:
+         continue
+    
