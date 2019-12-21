@@ -6,7 +6,7 @@ import torch.optim as optim
 import torch
 import torch.nn.init
 
-from keras import backend as K
+import tensorflow as tf
 
 
 
