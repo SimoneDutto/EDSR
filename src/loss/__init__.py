@@ -25,6 +25,23 @@ class Loss(nn.modules.loss._Loss):
                 loss_function = nn.MSELoss()
             elif loss_type == 'L1':
                 loss_function = nn.L1Loss()
+            elif loss_type == "huber":
+                loss_function = nn.SmoothL1Loss()
+            elif loss_type == "charb":
+                module = import_module('loss.charbonnier')
+                loss_function = getattr(module, 'Charbonnier')()
+            elif loss_type == "fair":
+                module = import_module('loss.fair')
+                loss_function = getattr(module, 'Fair')()
+            elif loss_type == "cauchy":
+                module = import_module('loss.cauchy')
+                loss_function = getattr(module, 'Cauchy')()
+            elif loss_type == "WMSE":
+                module = import_module('loss.WMSE')
+                loss_function = getattr(module, 'WMSE')()
+            elif loss_type == "GDL":
+                module = import_module('loss.gdl')
+                loss_function = getattr(module, 'GDL')()
             elif loss_type.find('VGG') >= 0:
                 module = import_module('loss.vgg')
                 loss_function = getattr(module, 'VGG')(
@@ -37,9 +54,6 @@ class Loss(nn.modules.loss._Loss):
                     args,
                     loss_type
                 )
-            elif loss_type == "GDL":
-                module = import_module('loss.gdl')
-                loss_function = getattr(module, 'GDL')()
 
             self.loss.append({
                 'type': loss_type,
