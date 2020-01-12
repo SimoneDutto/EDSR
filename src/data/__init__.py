@@ -40,7 +40,7 @@ class Data:
                 module_name = d if d.find('DIV2K-Q') < 0 else 'DIV2KJPEG'
                 m = import_module('data.' + module_name.lower())
                 testset = getattr(m, module_name)(args, train=False, name=d)
-            else if d == "SVNH":
+            elif d == "SVNH":
                 m = import_module('data.' + d.lower())
                 testset = getattr(m, module_name)(args, train=False, name=d)
             self.loader_test.append(
