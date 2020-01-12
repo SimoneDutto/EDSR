@@ -36,11 +36,11 @@ class Data:
             if d in ['Set5', 'Set14', 'B100', 'Urban100']:
                 m = import_module('data.benchmark')
                 testset = getattr(m, 'Benchmark')(args, train=False, name=d)
-            else if d == "DIV2K":
+            elif d == "DIV2K":
                 module_name = d if d.find('DIV2K-Q') < 0 else 'DIV2KJPEG'
                 m = import_module('data.' + module_name.lower())
                 testset = getattr(m, module_name)(args, train=False, name=d)
-            else if d == "SVHN":
+            else if d == "SVNH":
                 m = import_module('data.' + d.lower())
                 testset = getattr(m, module_name)(args, train=False, name=d)
             self.loader_test.append(
