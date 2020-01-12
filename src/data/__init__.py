@@ -42,7 +42,7 @@ class Data:
                 testset = getattr(m, module_name)(args, train=False, name=d)
             elif d == "SVNH":
                 m = import_module('data.' + d.lower())
-                testset = getattr(m, module_name)(args, train=False, name=d)
+                testset = getattr(m, d)(args, train=False, name=d)
             self.loader_test.append(
                 dataloader.DataLoader(
                     testset,
