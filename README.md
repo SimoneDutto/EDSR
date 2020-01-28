@@ -1,7 +1,7 @@
 **Our additions**
   * We add losses to evaluate PSNR on DIV2K and SVNH (the losses can be found in the loss folder)
   * To see more details there is the pdf of the paper we wrote about it
-  Additions by Davide Fiorino and Simone Dutto.
+  * Additions by Davide Fiorino and Simone Dutto.
 
 # EDSR-PyTorch
 
