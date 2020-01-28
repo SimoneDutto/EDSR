@@ -1,6 +1,6 @@
 **Additions for our project**
-  * We add losses to evaluate PSNR on DIV2K and SVNH [losses] (https://github.com/SimoneDutto/EDSR/tree/master/src/loss).
-  * Jupyter notebook to run the new code [notebook] (https://github.com/SimoneDutto/EDSR/blob/master/EDSR_notebook.ipynb).
+  * We add losses to evaluate PSNR on DIV2K and SVNH [losses](src/loss)
+  * Jupyter notebook to run the new code [notebook](EDSR_notebook.ipynb).
   * To see more details there is the pdf of the paper we wrote about it .
   * Additions by Davide Fiorino and Simone Dutto from Politecnico di Torino.
 
