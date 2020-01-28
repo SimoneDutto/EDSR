@@ -1,6 +1,6 @@
-**About PyTorch 1.2.0**
-  * Now the master branch supports PyTorch 1.2.0 by default.
-  * Due to the serious version problem (especially torch.utils.data.dataloader), MDSR functions are temporarily disabled. If you have to train/evaluate the MDSR model, please use legacy branches.
+**Our additions**
+  * We add losses to evaluate PSNR on DIV2K and SVNH (the losses can be found in the loss folder)
+  * To see more details there is the pdf of the paper we wrote about it
 
 # EDSR-PyTorch
 
